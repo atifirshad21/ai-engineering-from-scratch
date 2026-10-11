@@ -39,6 +39,11 @@ Learner note: tech-curious, not from a CS background. Explain jargon in plain wo
 
 Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phase 19 capstones).
 
+## Project ideas
+| Idea | Pipeline | Unlocks after | Notes |
+|------|----------|---------------|-------|
+| Granola-style meeting note-taker | Capture device audio + mic → speech-to-text (Whisper / Deepgram / AssemblyAI, chunked) → LLM turns transcript + user's rough notes into clean notes and action items | Phase 11 (basic); Phase 6 + 7/10 for speech internals; Phase 17 to ship | Added 2026-10-11. Live transcription uses Transformers on short audio chunks, so long meetings never hit the N² cost. |
+
 ## Progress log
 | Date | Lesson | Quiz | Note |
 |------|--------|------|------|
