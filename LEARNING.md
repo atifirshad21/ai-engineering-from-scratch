@@ -5,6 +5,8 @@
 ## Mission
 Ship an AI product. Build target: all four — an AI agent, a RAG product, a trained model, and whatever the product ends up needing beyond those.
 
+Learner note: tech-curious, not from a CS background. Explain jargon in plain words the first time it appears, use analogies, and flag gaps from placement (missed: RF hyperparameters, residual connections, attention Q/K/V) as they come up instead of doing the Review phases up front.
+
 ## Placement
 - Date: 2026-10-11
 - Score: 7/10 (Math & Statistics 2/2, Classical ML 1/2, Deep Learning 1/2, NLP & Transformers 1/2, Applied AI 2/2)
@@ -40,6 +42,7 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 ## Progress log
 | Date | Lesson | Quiz | Note |
 |------|--------|------|------|
+| 2026-10-11 | 07/01 why-transformers | 2/3 | Started at Phase 7 by choice. Got serial vs parallel and N² cost; mixed up when to pick Mamba (thought "short input → RNN"; rule is streaming/endless → RNN-style, fits in context → Transformer). |
 
 ## Review queue
-<!-- empty for now; learn adds lessons the quizzes flag -->
+- 07/01 why-transformers: choosing Transformer vs RNN/Mamba (fits in context vs endless stream)
