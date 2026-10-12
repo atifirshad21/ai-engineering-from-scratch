@@ -48,6 +48,7 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 | Date | Lesson | Quiz | Note |
 |------|--------|------|------|
 | 2026-10-11 | 07/01 why-transformers | 2/3 | Started at Phase 7 by choice. Got serial vs parallel and N² cost; mixed up when to pick Mamba (thought "short input → RNN"; rule is streaming/endless → RNN-style, fits in context → Transformer). |
+| 2026-10-12 | 07/02 self-attention-from-scratch | 3/3 | Q/K/V clicked after YouTube (query=search box, key=title, value=video) and worked 'it → animal' example. Asked where Q/K numbers come from (answer: learned, start random). Counted 3 comparisons for 3 words instead of 9 (forgot self + grid). Closed placement Q7 gap. |
 
 ## Review queue
-- 07/01 why-transformers: choosing Transformer vs RNN/Mamba (fits in context vs endless stream)
+- 07/01 why-transformers: choosing Transformer vs RNN/Mamba (fits in context vs endless stream). Missed again in 07/02 warm-up (picked Mamba for a short chat), so the 'short → RNN' idea is sticky. Re-check next warm-up.
