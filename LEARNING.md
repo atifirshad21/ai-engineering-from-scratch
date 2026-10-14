@@ -55,6 +55,7 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 | 2026-10-14 | 07/06 bert-masked-language-modeling | 2/3 | Warm-up 2/2. Got fill-in-the-blank and both-sides clues (coffee=before, dog=after). Clear on the RAG split: BERT fingerprints (fast, cheap, done once) vs Claude writes the answer. Missed: thought 80/10/10 masking exists to hide answers; the real reason is that real text has no [MASK], so training must match real use. |
 | 2026-10-14 | 07/07 gpt-causal-language-modeling | 3/3 | Warm-up 3/3 (80/10/10 review item correct once). Counted 4 practice questions from a 5-word sentence. Clear on parallel training (mask) vs serial generation. Picked temperatures well: extraction=greedy, brainstorm=high, RAG=low. |
 | 2026-10-14 | 07/08 t5-bart-encoder-decoder | 3/3 | Warm-up 3/3, which cleared the 80/10/10 review item. Got cross-attention (Q from decoder, K/V from encoder; 'noir' → 'black' despite reordering). Mapped the note-taker: Whisper (enc-dec, audio→text) then Claude (decoder-only, text→notes). |
+| 2026-10-14 | 07/09 vision-transformers | 3/3 | Warm-up 2/2. Got patches = tokens (784 patches for 8x8). Mid-lesson: said 4x tokens gives 4x attention cost; it's 16x (N²). Fixed by quiz. Picked smaller patches for receipts and learned the risks (misread digits vs cost). Asked how many lessons remain (292 in the main path; offered a fast-track option). |
 
 ## Review queue
 <!-- empty: all items cleared as of 07/08 -->
