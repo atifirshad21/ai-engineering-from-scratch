@@ -42,7 +42,7 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 ## Project ideas
 | Idea | Pipeline | Unlocks after | Notes |
 |------|----------|---------------|-------|
-| Granola-style meeting note-taker | Capture device audio + mic → speech-to-text (Whisper / Deepgram / AssemblyAI, chunked) → LLM turns transcript + user's rough notes into clean notes and action items | Phase 11 (basic); Phase 6 + 7/10 for speech internals; Phase 17 to ship | Added 2026-10-11. Live transcription uses Transformers on short audio chunks, so long meetings never hit the N² cost. |
+| Granola-style meeting note-taker | Capture device audio + mic → speech-to-text (Whisper / Deepgram / AssemblyAI, chunked) → LLM turns transcript + user's rough notes into clean notes and action items | Phase 11 (basic); Phase 6 + 7/10 for speech internals; Phase 17 to ship | Added 2026-10-11. Live transcription uses Transformers on short audio chunks, so long meetings never hit the N² cost. Refined 2026-10-14 (07/10): Whisper large-v3-turbo (30s chunks) + diarization (pyannote, Speaker A/B) → merge → map speakers to names (calendar/user/context) → Claude at low temperature → notes + action items. |
 
 ## Progress log
 | Date | Lesson | Quiz | Note |
@@ -56,6 +56,7 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 | 2026-10-14 | 07/07 gpt-causal-language-modeling | 3/3 | Warm-up 3/3 (80/10/10 review item correct once). Counted 4 practice questions from a 5-word sentence. Clear on parallel training (mask) vs serial generation. Picked temperatures well: extraction=greedy, brainstorm=high, RAG=low. |
 | 2026-10-14 | 07/08 t5-bart-encoder-decoder | 3/3 | Warm-up 3/3, which cleared the 80/10/10 review item. Got cross-attention (Q from decoder, K/V from encoder; 'noir' → 'black' despite reordering). Mapped the note-taker: Whisper (enc-dec, audio→text) then Claude (decoder-only, text→notes). |
 | 2026-10-14 | 07/09 vision-transformers | 3/3 | Warm-up 2/2. Got patches = tokens (784 patches for 8x8). Mid-lesson: said 4x tokens gives 4x attention cost; it's 16x (N²). Fixed by quiz. Picked smaller patches for receipts and learned the risks (misread digits vs cost). Asked how many lessons remain (292 in the main path; offered a fast-track option). |
+| 2026-10-14 | 07/10 audio-transformers-whisper | 2/3 | Warm-up 2/2. Got 120 chunks per hour and why (N², plus Whisper trained on 30s). Designed the full note-taker pipeline (Whisper + diarization + name mapping + Claude). Missed: thought turbo got faster through shorter chunks; it keeps the big encoder and shrinks the decoder from 32 to 4 layers. |
 
 ## Review queue
-<!-- empty: all items cleared as of 07/08 -->
+- 07/10 audio-transformers-whisper: Whisper-turbo speed comes from shrinking the DECODER (32→4 layers) and keeping the big encoder. Understanding audio is the hard part; writing text is the easy part. Chunk length stays 30s.
