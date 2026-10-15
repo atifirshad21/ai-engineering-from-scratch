@@ -7,6 +7,8 @@ Ship an AI product. Build target: all four — an AI agent, a RAG product, a tra
 
 Learner note: tech-curious, not from a CS background. Explain jargon in plain words the first time it appears, use analogies, and flag gaps from placement (missed: RF hyperparameters, residual connections, attention Q/K/V) as they come up instead of doing the Review phases up front.
 
+Teaching format (learner request, 2026-10-15): give the FULL theory of the lesson first in one go (concepts, analogies, real numbers), then ask questions together at the end. Do not interrupt every few paragraphs with check questions.
+
 ## Placement
 - Date: 2026-10-11
 - Score: 7/10 (Math & Statistics 2/2, Classical ML 1/2, Deep Learning 1/2, NLP & Transformers 1/2, Applied AI 2/2)
@@ -59,7 +61,8 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 | 2026-10-14 | 07/10 audio-transformers-whisper | 2/3 | Warm-up 2/2. Got 120 chunks per hour and why (N², plus Whisper trained on 30s). Designed the full note-taker pipeline (Whisper + diarization + name mapping + Claude). Missed: thought turbo got faster through shorter chunks; it keeps the big encoder and shrinks the decoder from 32 to 4 layers. |
 | 2026-10-14 | 07/11 mixture-of-experts | 3/3 | Warm-up 2/2 (Whisper-turbo review item correct once). Got router = picks top experts per word, total vs active params (MoE is faster but needs memory for ALL experts), load balancing stops 'rich get richer'. Self-host rule: MoE when GPU memory is plentiful, dense when memory is tight. |
 | 2026-10-15 | 07/12 kv-cache-flash-attention | 3/3 | Warm-up 1/3: said MoE uses less memory (it needs ALL experts loaded); Whisper turbo answered 'smaller encoder' again. Mid-lesson: thought old words' K/V get recomputed for every new word; clicked once tied to the causal mask (old words can't see new ones, 'diary in pen'). Thought Flash skips math (that's sliding window); it does the same math with fewer slow-memory trips. Quiz clean. |
+| 2026-10-15 | 07/13 scaling-laws | 3/3 | Warm-up 4/4 (both review items correct once). Got Chinchilla 20 tokens/param (7B → 140B), over-training for serving cost, emergence as a scoring artifact. Asked for full theory first instead of frequent questions; switched format mid-lesson. |
 
 ## Review queue
-- 07/10 audio-transformers-whisper: Whisper-turbo speed comes from shrinking the DECODER (32→4 layers) and keeping the big encoder. Understanding audio is the hard part; writing text is the easy part. Chunk length stays 30s. (Correct in 07/11 warm-up, missed again in 07/12 warm-up ('smaller encoder'); needs 2 correct in a row.)
-- 07/11 mixture-of-experts: MoE saves COMPUTE, not MEMORY. 100B total / 10B active runs about as fast as a 10B dense model but needs memory for all 100B. (Missed in 07/12 warm-up.)
+- 07/10 audio-transformers-whisper: Whisper-turbo speed comes from shrinking the DECODER (32→4 layers) and keeping the big encoder. Understanding audio is the hard part; writing text is the easy part. Chunk length stays 30s. (Correct in 07/11 warm-up, missed again in 07/12 warm-up ('smaller encoder'); needs 2 correct in a row. Correct in 07/13 warm-up; one more clears it.)
+- 07/11 mixture-of-experts: MoE saves COMPUTE, not MEMORY. 100B total / 10B active runs about as fast as a 10B dense model but needs memory for all 100B. (Missed in 07/12 warm-up; correct in 07/13 warm-up; one more clears it.)
