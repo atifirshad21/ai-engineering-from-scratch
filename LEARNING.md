@@ -25,7 +25,7 @@ Teaching format (learner request, 2026-10-15): give the FULL theory of the lesso
 | 4 | Computer Vision | Skip | -- |
 | 5 | NLP — Foundations to Advanced | Review | 30 |
 | 6 | Speech & Audio | Skip | -- |
-| 7 | Transformers Deep Dive | Do | 14 |
+| 7 | Transformers Deep Dive | Done | 14 |
 | 8 | Generative AI | Do | 14 |
 | 9 | Reinforcement Learning | Do | 13 |
 | 10 | LLMs from Scratch | Do | 26 |
@@ -64,8 +64,9 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 | 2026-10-15 | 07/13 scaling-laws | 3/3 | Warm-up 4/4 (both review items correct once). Got Chinchilla 20 tokens/param (7B → 140B), over-training for serving cost, emergence as a scoring artifact. Asked for full theory first instead of frequent questions; switched format mid-lesson. |
 | 2026-10-24 | 07/14 build-a-transformer-capstone | 2/3 | Taught theory-first (full architecture walkthrough, then questions). Got loss 4.17 = uniform guessing over 65 chars, and val-loss rising = overfitting. Missed: thought 64 practice questions means running the model 64 times; it's ONE parallel pass (shift-by-one targets + causal mask). MoE review missed again ('20B memory'). |
 | 2026-10-27 | 07/15 attention-variants | 3/3 | Theory-first. Got SWA-only loses/blurs far facts, Gemma 3 5:1 SWA:global mix for long-range links at ~6x less KV, differential attention = two maps minus noise at 2x KV. MoE review correct ('300B memory, 30B speed'). |
+| 2026-10-27 | 07/16 speculative-decoding | 3/3 | Theory-first. Got one-pass verification at every position (links to capstone), identical output distribution, best fit = structured low-temp text (like the note-taker). Whisper turbo review missed a 3rd time ('smaller encoder'); re-explained with listener/typist analogy. Phase 7 complete. |
 
 ## Review queue
-- 07/10 audio-transformers-whisper: Whisper-turbo speed comes from shrinking the DECODER (32→4 layers) and keeping the big encoder. Understanding audio is the hard part; writing text is the easy part. Chunk length stays 30s. (Correct in 07/11 warm-up, missed again in 07/12 warm-up ('smaller encoder'); needs 2 correct in a row. Correct in 07/13 warm-up; one more clears it. Not asked in 07/14.)
+- 07/10 audio-transformers-whisper: Whisper-turbo speed comes from shrinking the DECODER (32→4 layers) and keeping the big encoder. Understanding audio is the hard part; writing text is the easy part. Chunk length stays 30s. (Correct in 07/11 warm-up, missed again in 07/12 warm-up ('smaller encoder'); needs 2 correct in a row. Missed a 3rd time in 07/16 ('smaller encoder'). Analogy: ENCODER = the ears/listener (kept big, the hard part); DECODER = the typist (shrunk 32→4 layers, the easy part). Needs 2 correct in a row.)
 - 07/11 mixture-of-experts: MoE saves COMPUTE, not MEMORY. 100B total / 10B active runs about as fast as a 10B dense model but needs memory for all 100B. (Missed 07/12, correct 07/13, missed again 07/14 ('20B memory'). Needs 2 correct in a row. Rule: memory follows TOTAL params, speed follows ACTIVE params. Correct in 07/15; one more clears it.)
 - 07/14 build-a-transformer-capstone: one snippet of 64 characters = 64 practice questions in ONE forward pass. Targets are the same text shifted by one; the causal mask hides the future so all 64 are answered in parallel. Running one-by-one only happens at generation time.
