@@ -28,7 +28,7 @@ Teaching format (learner request, 2026-10-15): give the FULL theory of the lesso
 | 7 | Transformers Deep Dive | Done | 14 |
 | 8 | Generative AI | Do | 14 |
 | 9 | Reinforcement Learning | Do | 13 |
-| 10 | LLMs from Scratch | Do | 26 |
+| 10 | LLMs from Scratch | Do (in progress, started before 8 and 9) | 26 |
 | 11 | LLM Engineering | Do | 19 |
 | 12 | Multimodal AI | Do | 65 |
 | 13 | Tools & Protocols | Do | 43 |
@@ -66,10 +66,11 @@ Total (Review + Do): ~1053 hours across 16 phases (~433 hours excluding the Phas
 | 2026-10-27 | 07/15 attention-variants | 3/3 | Theory-first. Got SWA-only loses/blurs far facts, Gemma 3 5:1 SWA:global mix for long-range links at ~6x less KV, differential attention = two maps minus noise at 2x KV. MoE review correct ('300B memory, 30B speed'). |
 | 2026-10-27 | 07/16 speculative-decoding | 3/3 | Theory-first. Got one-pass verification at every position (links to capstone), identical output distribution, best fit = structured low-temp text (like the note-taker). Whisper turbo review missed a 3rd time ('smaller encoder'); re-explained with listener/typist analogy. Phase 7 complete. |
 | 2026-10-27 | Phase 7 check-understanding | 6/8 (Almost) | Strong on parallelism, GQA, RoPE gap, BERT embeddings, greedy for extraction, ViT 16x cost. Missed: thought Flash Attention shrinks the KV cache (it only cuts slow-memory trips during attention), and flipped cross-attention (Q comes from the DECODER, K/V from the ENCODER). |
+| 2026-10-29 | 10/01 tokenizers | 3/3 | Detour: learner chose to jump to Phase 10 now; Phases 8 and 9 stay on the path for later. Theory-first. Got vocab-size trade-off, byte-level fallback (no unknowns), multilingual tax (matters for note-taker pricing). Flash-vs-KV review correct once. |
 
 ## Review queue
 - 07/10 audio-transformers-whisper: Whisper-turbo speed comes from shrinking the DECODER (32→4 layers) and keeping the big encoder. Understanding audio is the hard part; writing text is the easy part. Chunk length stays 30s. (Correct in 07/11 warm-up, missed again in 07/12 warm-up ('smaller encoder'); needs 2 correct in a row. Missed a 3rd time in 07/16 ('smaller encoder'). Analogy: ENCODER = the ears/listener (kept big, the hard part); DECODER = the typist (shrunk 32→4 layers, the easy part). Needs 2 correct in a row.)
 - 07/11 mixture-of-experts: MoE saves COMPUTE, not MEMORY. 100B total / 10B active runs about as fast as a 10B dense model but needs memory for all 100B. (Missed 07/12, correct 07/13, missed again 07/14 ('20B memory'). Needs 2 correct in a row. Rule: memory follows TOTAL params, speed follows ACTIVE params. Correct in 07/15; one more clears it.)
 - 07/14 build-a-transformer-capstone: one snippet of 64 characters = 64 practice questions in ONE forward pass. Targets are the same text shifted by one; the causal mask hides the future so all 64 are answered in parallel. Running one-by-one only happens at generation time.
-- 07/12 kv-cache-flash-attention: Flash Attention does NOT shrink the KV cache. It only cuts trips to slow memory while computing attention. To shrink the cache: fp8 KV cache, capped context, GQA, or sliding-window models. (Missed in Phase 7 check.)
+- 07/12 kv-cache-flash-attention: Flash Attention does NOT shrink the KV cache. It only cuts trips to slow memory while computing attention. To shrink the cache: fp8 KV cache, capped context, GQA, or sliding-window models. (Missed in Phase 7 check; correct in 10/01, one more clears it.)
 - 07/08 t5-bart-encoder-decoder: in cross-attention the DECODER asks (Q) and the ENCODER supplies (K, V). The French side asks 'which English words help me now?' (Missed in Phase 7 check; was correct in 07/08.)
